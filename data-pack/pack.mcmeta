@@ -1,0 +1,7 @@
+{
+    "pack": {
+        "pack_format": 48,
+        "supported_formats": { "min_inclusive": 42, "max_inclusive": 48 },
+        "description": [{"text": "Custom datapack for CraftWell 5 SMP"}]
+    }
+}
