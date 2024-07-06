@@ -1,8 +1,5 @@
 {
-    "parent": "minecraft:item/generated",
-    "textures": {
-      "layer0": "minecraft:item/carved_pumpkin"
-    },
+    "parent": "minecraft:block/carved_pumpkin",
     "overrides": [
       {"predicate": {"custom_model_data": 111},"model": "craftwell:block/facial_hair/curly_mustache_black"},
       {"predicate": {"custom_model_data": 112},"model": "craftwell:block/facial_hair/curly_mustache_blonde"},
