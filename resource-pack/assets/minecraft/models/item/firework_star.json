@@ -5,6 +5,7 @@
         "layer1": "item/firework_star_overlay"
     },
     "overrides": [
-      {"predicate": {"custom_model_data": 1},"model": "craftwell:item/cupcake"}
+      {"predicate": {"custom_model_data": 1},"model": "craftwell:item/cupcake"},
+      {"predicate": {"custom_model_data": 2},"model": "craftwell:item/candy"}
   ]
 }
