@@ -1,8 +1,8 @@
 {
 	"credit": "Made by MrInhumane",
 	"textures": {
-		"0": "craftwell:block/facial_hair/red",
-		"particle": "craftwell:block/facial_hair/red"
+		"0": "craftwell:block/facial_hair/ginger",
+		"particle": "craftwell:block/facial_hair/ginger"
 	},
 	"elements": [
 		{
