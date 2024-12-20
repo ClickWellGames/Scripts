@@ -1,0 +1,52 @@
+command /bypass <player=%player%>:
+    aliases: /ab
+    executable by: the console and players
+    description: Toggle administrative bypass in all regions until leaving for yourself or another player.
+    permission: group.cwadmin
+    permission message: &cYou must be a &bCraftWell Admin &cto run this command.
+    trigger:
+        if argument 1 is not sender:
+            if argument 1 does not have the permission "group.cwadmin":
+                if argument 1 has the permission "luckperms.autoop":
+                    send "&cYou can not modify the bypass status of this user since they have OPERATOR status."
+                else if argument 1 does not have the permission "regionadmin.bypass":
+                    if argument 1 does not have the permissions ("worldguard.region.bypass.*" and "worldguard.region.toggle-bypass"):
+                        execute console command "/lp user %arg-1% permission set worldguard.region.bypass.* true"
+                        execute console command "/lp user %arg-1% permission set worldguard.region.toggle-bypass true"
+                    if argument 1 does not have the permission "griefprevention.ignoreclaims":
+                        execute console command "/lp user %arg-1% permission set griefprevention.ignoreclaims true"
+                    execute console command "/lp user %arg-1% permission set regionadmin.bypass true"
+                    wait 1 second
+                    execute argument 1 command "/griefprevention:ignoreclaims"
+                    execute argument 1 command "/worldguard:region bypass"
+                    send "&eAdmin bypass has been &aENABLED &efor user &f%arg-1%" to sender
+                else if argument 1 has the permission "regionadmin.bypass":
+                    execute argument 1 command "/griefprevention:ignoreclaims"
+                    execute argument 1 command "/worldguard:region bypass"
+                    wait 1 second
+                    if argument 1 has the permissions ("worldguard.region.bypass.*" and "worldguard.region.toggle-bypass"):
+                        execute console command "/lp user %arg-1% permission unset worldguard.region.bypass.*"
+                        execute console command "/lp user %arg-1% permission unset worldguard.region.toggle-bypass"
+                    if argument 1 has the permission "griefprevention.ignoreclaims":
+                        execute console command "/lp user %arg-1% permission unset griefprevention.ignoreclaims"
+                    execute console command "/lp user %arg-1% permission unset regionadmin.bypass"
+                    send "&eAdmin bypass has been &cDISABLED &efor user &f%arg-1%" to sender
+            else if argument 1 has the permission "group.cwadmin":
+                send "&cYou can not modify the bypass status of a &bCraftWell Admin&e." to sender
+        else:
+            execute sender command "/worldguard:region bypass"
+            execute sender command "/griefprevention:ignoreclaims"
+
+on join:
+    if player has permission "regionadmin.bypass":
+        execute console command "/lp user %player% permission unset griefprevention.ignoreclaims"
+        execute console command "/lp user %player% permission unset worldguard.region.bypass.*"
+        execute console command "/lp user %player% permission unset worldguard.region.toggle-bypass"
+        execute console command "/lp user %player% permission unset regionadmin.bypass"
+
+on quit:
+    if player has permission "regionadmin.bypass":
+        execute console command "/lp user %player% permission unset griefprevention.ignoreclaims"
+        execute console command "/lp user %player% permission unset worldguard.region.bypass.*"
+        execute console command "/lp user %player% permission unset worldguard.region.toggle-bypass"
+        execute console command "/lp user %player% permission unset regionadmin.bypass"

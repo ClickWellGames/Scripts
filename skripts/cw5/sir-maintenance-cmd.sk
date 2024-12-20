@@ -1,0 +1,42 @@
+command /maintenance <offline player=%sender%>:
+    permission: maintenance.toggle
+    permission message: "You do not have permission to run this command."
+    executable by: the console and players
+    trigger:
+        if sender is console:
+            if "MrSir0814" parsed as offline player does not have permission "maintenance.enabled":
+                execute console command "/lp group default permission set maintenance.enabled true"
+                if argument 1 is set:
+                    execute console command "/lp user %arg-1% permission set maintenance.allowed true"
+                loop all players:
+                    if loop-player does not have permission "maintenance.allowed":
+                        kick loop-player due to "CraftWell 5 is currently under maintenance. Please check the Discord for more information."
+            else:
+                execute console command "/lp group default permission unset maintenance.enabled"
+                execute console command "/lp bulkupdate users delete ""permission == maintenance.allowed"""
+
+        else:
+            if sender does not have permission "maintenance.enabled":
+                execute console command "/lp group default permission set maintenance.enabled true"
+                if argument 1 is set:
+                    execute console command "/lp user %arg-1% permission set maintenance.allowed true"
+                else:
+                    execute console command "/lp user %sender% permission set maintenance.allowed true"
+                loop all players:
+                    if loop-player does not have permission "maintenance.allowed":
+                        kick loop-player due to "CraftWell 5 is currently under maintenance. Please check the Discord for more information."
+            else:
+                execute console command "/lp group default permission unset maintenance.enabled"
+                execute console command "/lp bulkupdate users delete ""permission == maintenance.allowed"""
+
+on connect:
+    if player has permission "maintenance.enabled":
+        if player does not have permission "maintenance.allowed":
+            kick the player due to "CraftWell 5 is currently under maintenance. Please check the Discord for more information."
+
+on leave:
+    if player has permission "maintenance.enabled":
+        if player has the permission "maintenance.allowed":
+            if the online player count is 0:
+                execute console command "/lp group default permission unset maintenance.enabled"
+                execute console command "/lp bulkupdate users delete ""permission == maintenance.allowed"""

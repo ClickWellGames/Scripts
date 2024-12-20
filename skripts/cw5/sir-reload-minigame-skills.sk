@@ -1,0 +1,21 @@
+on region enter:
+    if "%region%" is "minigames in world world":
+        wait 10 ticks
+        execute console command "/sk reload"
+
+on region exit:
+    if "%region%" is "minigames in world world":
+        wait 10 ticks
+        execute console command "/sk reload"
+
+on region enter:
+    if "%region%" is "sakura-casino in world world":
+        wait 10 ticks
+        execute console command "/lp user %event-player% permission set auraskills.skill.* true"
+        execute console command "/sk reload"
+
+on region exit:
+    if "%region%" is "sakura-casino in world world":
+        wait 10 ticks
+        execute console command "/lp user %event-player% permission unset auraskills.skill.*"
+        execute console command "/sk reload"

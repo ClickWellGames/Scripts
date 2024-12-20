@@ -1,0 +1,20 @@
+command /live <player=%player%>:
+    permission: group.craftwellian
+    trigger:
+        if sender is player argument:
+            if player argument does not have permission "group.live":
+                execute console command "/lp user %arg-1% parent addtemp live 6h"
+                broadcast "&a[&dALERT&a] &6%arg-1% &ehas &a&lENABLED &elive mode!"
+            if player argument has permission "group.live":
+                execute console command "/lp user %arg-1% parent removetemp live"
+                broadcast "&a[&dALERT&a] &6%arg-1% &ehas &c&lDISABLED &elive mode!"
+        else:
+            if sender has permission "group.cwadmin":
+                if player argument does not have permission "group.live":
+                    execute console command "/lp user %arg-1% parent addtemp live 6h"
+                    broadcast "&a[&dALERT&a] &6%arg-1% &ehas &a&lENABLED &elive mode!"
+                if player argument has permission "group.live":
+                    execute console command "/lp user %arg-1% parent removetemp live"
+                    broadcast "&a[&dALERT&a] &6%arg-1% &ehas &c&lDISABLED &elive mode!"
+            else:
+                send "&cYou must be a &bCraftWell Admin &eto run this command for another player." to sender

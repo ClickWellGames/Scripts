@@ -1,0 +1,6 @@
+on portal enter:
+    # Home Tree
+    if event-location is within location(-29071, 101, -26705) and location(-29072, 106, -26707):
+        teleport event-entity to location(4494.5, 63, -15232.5, world "world", 90, 0)
+    if event-location is within location(4498, 63, -15233) and location(4499, 68, -15231):
+        teleport event-entity to location(-29069.5, 101, -26706.5, world "world", -90, 0)

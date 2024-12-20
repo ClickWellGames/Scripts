@@ -1,0 +1,19 @@
+on inventory close:
+    if event-player is within 7 blocks of location(4861, 72, -15496, world "world"):
+        if type of event-inventory is a chest inventory:
+            if event-inventory contains a spectral arrow:
+                send title "&6Well Done!" with subtitle "&aHere is your next clue..." to player for 3 seconds with fade in 1 second and fade out 1 second
+                execute console command "/kit clue2 %event-player%"
+
+    else if event-player is within 7 blocks of location(3392, 66, -1607, world "world"):
+        if type of event-inventory is a chest inventory:
+            if event-inventory contains a melon:
+                send title "&6Well Done!" with subtitle "&aHere is your next clue..." to player for 3 seconds with fade in 1 second and fade out 1 second
+                execute console command "/kit clue4 %event-player%"
+
+on inventory open:
+    if event-player is within 5 blocks of location(4485, 160, -16088, world "world"):
+        if type of event-inventory is a chest inventory:
+            if event-inventory contains written book:
+                send title "&6Congratulations!" with subtitle "&aHere is your reward!" to player for 3 seconds with fade in 1 second and fade out 1 second
+                execute console command "/kit final-clue-reward %event-player%"

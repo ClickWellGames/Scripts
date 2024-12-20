@@ -1,0 +1,125 @@
+on load:
+    set {base::uuid} to "f393dcd3-4fdb-4802-9fbc-55594fa64c15"
+    set {base::hash} to "015cb4986a44fd4789d1de5bd50d6e82fe062612"
+    set {base::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/cw5-custom-resourcepack.zip"
+
+# Misc
+    set {clickpack::uuid} to "ec560bc3-7600-4649-838c-a728dbb6d041"
+    set {clickpack::hash} to "1ac959f9a788ec520a71f1601db65bab86d792fa"
+    set {clickpack::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/misc/clickpack.zip"
+
+    set {gold-crown::uuid} to "de2fb076-6823-4f68-9d27-6be4d80cf043"
+    set {gold-crown::hash} to "a78618c568835da6c554a43fcce095e3c2b74c1f"
+    set {gold-crown::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/misc/golden-crown.zip"
+
+# Elytras
+    set {dragon-elytra::uuid} to "2ccec3cc-4792-42bc-af57-df89e6a8108a"
+    set {dragon-elytra::hash} to "334ae67f3992ed905e8184cfa332283954be436b"
+    set {dragon-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/dragon.zip"
+
+    set {phantom-elytra::uuid} to "ada8e5eb-f310-4d3a-bc7c-c3914c205bb9"
+    set {phantom-elytra::hash} to "a695d064018b2d4b4df242cb96c02a2538f49faf"
+    set {phantom-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/phantom.zip"
+
+    set {allay-elytra::uuid} to "db783322-b169-489e-85f7-9da676afc551"
+    set {allay-elytra::hash} to "e22813ceba879e25980dbd38fcb7c74f542ebae9"
+    set {allay-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/allay.zip"
+
+    set {vex-elytra::uuid} to "11af994e-4acf-470a-91ac-60f3194b7fd0"
+    set {vex-elytra::hash} to "e2d08bfc89dfd7d24a586f49bdde917708ec8608"
+    set {vex-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/vex.zip"
+
+# Personal Elytras
+    set {clickwell-davinchi-elytra::uuid} to "e8cd6b0f-bcb3-4073-9a77-343de4b054b5"
+    set {clickwell-davinchi-elytra::hash} to "f8330100230452eec516fa12c6b0b90ba40c95fd"
+    set {clickwell-davinchi-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-davinchi.zip"
+
+    set {clickwell-green-elytra::uuid} to "ef38cd7f-40f0-498d-8eab-9194ac959bee"
+    set {clickwell-green-elytra::hash} to "eb888b2491a6191cfe56fdb3624cae1b1a6f66c7"
+    set {clickwell-green-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-green.zip"
+
+    set {crazymama-moth-elytra::uuid} to "09f2d7b3-8913-46d1-a187-8c866ed4f1fb"
+    set {crazymama-moth-elytra::hash} to "17701f7cf2154e5096f5e89bf26c63ccbcc86308"
+    set {crazymama-moth-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/crazymama-moth.zip"
+
+function applyPack(p: player):
+    if {_p} has permission "pack.cw5-base":
+        send resource pack from {base::url} with uuid {base::uuid} with hash {base::hash} to {_p} with force
+        add "CW5-BASE" to {_pack::*}
+    if {_p} has permission "pack.clickpack":
+        send resource pack from {clickpack::url} with uuid {clickpack::uuid} with hash {clickpack::hash} to {_p} with force
+        add "clickpack" to {_pack::*}
+    if {_p} has permission "pack.gold-crown":
+        send resource pack from {gold-crown::url} with uuid {gold-crown::uuid} with hash {gold-crown::hash} to {_p} with force
+        add "gold-crown" to {_pack::*}
+    if {_p} has permission "pack.dragon-elytra":
+        send resource pack from {dragon-elytra::url} with uuid {dragon-elytra::uuid} with hash {dragon-elytra::hash} to {_p} with force
+        add "dragon-elytra" to {_pack::*}
+    if {_p} has permission "pack.phantom-elytra":
+        send resource pack from {phantom-elytra::url} with uuid {phantom-elytra::uuid} with hash {phantom-elytra::hash} to {_p} with force
+        add "phantom-elytra" to {_pack::*}
+    if {_p} has permission "pack.allay-elytra":
+        send resource pack from {allay-elytra::url} with uuid {allay-elytra::uuid} with hash {allay-elytra::hash} to {_p} with force
+        add "allay-elytra" to {_pack::*}
+    if {_p} has permission "pack.vex-elytra":
+        send resource pack from {vex-elytra::url} with uuid {vex-elytra::uuid} with hash {vex-elytra::hash} to {_p} with force
+        add "vex-elytra" to {_pack::*}
+
+# Personal Elytras
+
+    #ClickWell
+    if {_p} has permission "pack.clickwell-davinchi-elytra":
+        send resource pack from {clickwell-davinchi-elytra::url} with uuid {clickwell-davinchi-elytra::uuid} with hash {clickwell-davinchi-elytra::hash} to {_p} with force
+        add "clickwell-davinchi-elytra" to {_pack::*}
+    if {_p} has permission "pack.clickwell-green-elytra":
+        send resource pack from {clickwell-green-elytra::url} with uuid {clickwell-green-elytra::uuid} with hash {clickwell-green-elytra::hash} to {_p} with force
+        add "clickwell-green-elytra" to {_pack::*}
+    #CRAZYMAMA
+    if {_p} has permission "pack.crazymama-moth-elytra":
+        send resource pack from {crazymama-moth-elytra::url} with uuid {crazymama-moth-elytra::uuid} with hash {crazymama-moth-elytra::hash} to {_p} with force
+        add "crazymama-moth-elytra" to {_pack::*}
+
+
+# List loaded packs
+    if {_pack::*} is set:
+        send "&eThe following resource packs have been applied: &a%{_pack::*}%" to {_p}
+
+
+on join:
+    wait 1 second
+    applyPack(player)
+
+command /reloadpack:
+    executable by: players
+    trigger:
+        wait 1 second
+        remove all resource packs from player
+        applyPack(player)
+
+command /pack:
+    executable by: players
+    trigger:
+        execute player command "/cw5_pack_misc"
+
+command /clearpack:
+    executable by: players
+    trigger:
+        if player has permission "pack.clickpack":
+            execute console command "/lp user %player% permission unset pack.clickpack"
+        if player has permission "pack.gold-crown":
+            execute console command "/lp user %player% permission unset pack.gold-crown"
+        if player has permission "pack.dragon-elytra":
+            execute console command "/lp user %player% permission unset pack.dragon-elytra"
+        if player has permission "pack.phantom-elytra":
+            execute console command "/lp user %player% permission unset pack.phantom-elytra"
+        if player has permission "pack.allay-elytra":
+            execute console command "/lp user %player% permission unset pack.allay-elytra"
+        if player has permission "pack.clickwell-davinchi-elytra":
+            execute console command "/lp user %player% permission unset pack.clickwell-davinchi-elytra"
+        if player has permission "pack.clickwell-green-elytra":
+            execute console command "/lp user %player% permission unset pack.clickwell-green-elytra"
+        if player has permission "pack.crazymama-moth-elytra":
+            execute console command "/lp user %player% permission unset pack.crazymama-moth-elytra"
+        wait 1 second
+        remove all resource packs from player
+        applyPack(player)

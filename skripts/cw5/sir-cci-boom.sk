@@ -1,0 +1,30 @@
+on spawn of a wolf:
+    set {_mini} to string tag "Tags[0]" of nbt of event-entity
+    if {_mini} is "BOOM":
+        apply potion of regeneration 1 to event-entity for 300 seconds
+        apply potion of resistance 1 to event-entity for 300 seconds
+        # if {totem} is not set:
+        #     set {totem} to 0
+        # if {totem} is 0:
+        #     make "ClickWell" parsed as player execute command "/minecraft:give @s totem_of_undying[max_stack_size=3,enchantments={levels:{'minecraft:vanishing_curse':1}}] 2"
+        #     set {totem} to 1
+
+
+on potion effect removed:
+    if event-entity is a wolf:
+        if event-potioneffecttype = regeneration:
+            set {_mini} to string tag "Tags[0]" of nbt of event-entity
+            if {_mini} is "BOOM":
+                create a safe explosion with power 4 at the event-entity
+                kill event-entity
+
+on death of player:
+    if name of victim is "ClickWell":
+        execute console command "/minecraft:kill @e[type=minecraft:wolf,nbt={Tags:['BOOM']}]"
+        # if {totem} is 1:
+        #     set {totem} to 0
+
+command /sir-totem-reset:
+    trigger:
+        #execute console command "/minecraft:clear @a totem_of_undying[max_stack_size=3] 3"
+        # set {totem} to 0

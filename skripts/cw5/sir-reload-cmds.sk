@@ -1,0 +1,3 @@
+command /sir-reload-cmds:
+    trigger:
+        reload all command aliases

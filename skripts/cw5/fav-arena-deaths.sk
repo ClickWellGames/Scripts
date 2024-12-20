@@ -1,0 +1,30 @@
+on death:
+      if victim is spider:
+            if "%region at victim%" contains "arena":
+                  if victim's display name is not "spider_spawn":
+                        loop 15 times:
+                              summon spider at victim's location
+                              set the name of the last spawned spider to "makesmall"
+                              execute the command "execute as @e[name='makesmall',limit=1] run attribute @s generic.scale base set 0.5"
+                              set the name of the last spawned spider to "spider_spawn"
+                        loop 5 times:
+                              summon spider at victim's location
+                              set the name of the last spawned spider to "makesmall"
+                              execute the command "execute as @e[name='makesmall',limit=1] run attribute @s generic.scale base set 1.5"
+                              set the name of the last spawned spider to "spider_spawn"
+                        loop 20 times:
+                              summon spider at victim's location
+                              set the name of the last spawned spider to "makesmall"
+                              execute the command "execute as @e[name='makesmall',limit=1] run attribute @s generic.scale base set 0.25"
+                              set the name of the last spawned spider to "spider_spawn"
+                        loop 10 times:
+                              summon spider at victim's location
+                              set the name of the last spawned spider to "makesmall"
+                              execute the command "execute as @e[name='makesmall',limit=1] run attribute @s generic.scale base set .75"
+                              set the name of the last spawned spider to "spider_spawn"
+
+on death:
+      if victim is mob:
+            if "%region at victim%" contains "arena":
+                  clear the drops
+

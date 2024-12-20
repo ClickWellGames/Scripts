@@ -1,0 +1,8 @@
+command /menu:
+    executable by: players
+    aliases: /m
+    trigger:
+        if player has permission "group.cwadmin":
+            execute player command "/cw5_admin_menu"
+        else:
+            execute player command "/cw5_menu"

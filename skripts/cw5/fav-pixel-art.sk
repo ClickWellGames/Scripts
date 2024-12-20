@@ -1,0 +1,20 @@
+command /pixelreset:
+     executable by: the console and players
+     description: reset the pixel game area
+     trigger:
+          if sender is "fantasyanimalveg" or "ClickWell" or "Mrsir0814" or "MrInhumane":
+               set {_pos1} to location(-29022, 0, -25203, world "world")
+               set {_pos2} to location(-28947, 150, -25214, world "world")
+               set blocks within {_pos1} and {_pos2} to air
+
+               set {_pos3} to location(-28942, 0, -25294, world "world")
+               set {_pos4} to location(-28931, 150, -25219, world "world")
+               set blocks within {_pos3} and {_pos4} to air
+
+               set {_pos5} to location(-28947, 0, -25310, world "world")
+               set {_pos6} to location(-29002, 150, -25299, world "world")
+               set blocks within {_pos5} and {_pos6} to air
+
+               set {_pos7} to location(-29027, 0, -25219, world "world")
+               set {_pos8} to location(-29038, 150, -25294, world "world")
+               set blocks within {_pos7} and {_pos8} to air

@@ -1,0 +1,64 @@
+command /pvpme <player=%player%>:
+    aliases: /pvp
+    description: Toggle PvP for yourself or another player.
+    executable by: the console and players
+    permission: pvpme.use
+    permission message: &cThis command can only be run by a &bCraftWell Admin.
+    trigger:
+        if player argument doesn't have permission "pvpme.on":
+            execute console command "/rg addmember -w world __global__ %arg-1%"
+            execute console command "/rg addmember -w world_nether __global__ %arg-1%"
+            execute console command "/rg addmember -w world_the_end __global__ %arg-1%"
+            execute console command "/lp user %arg-1% permission set pvpme.on true"
+            send "&ePvP has been &aENABLED &efor &f%arg-1%" to sender
+            if player argument is not sender:
+                send "&eAn admin has &aENABLED &eyour PvP! You can now attack other players." to player argument
+        if player argument has permission "pvpme.on":
+            execute console command "/rg removemember -w world __global__ %arg-1%"
+            execute console command "/rg removemember -w world_nether __global__ %arg-1%"
+            execute console command "/rg removemember -w world_the_end __global__ %arg-1%"
+            execute console command "/lp user %arg-1% permission unset pvpme.on"
+            send "&ePvP has been &cDISABLED &efor &f%arg-1%" to sender
+            if player argument is not sender:
+                send "&eAn admin has &cDISABLED &eyour PvP! You can no longer attack any players." to player argument
+
+command /pvpall:
+    aliases: /pvpa
+    description: Toggle PvP for all players. This action overrides /pvpme.
+    executable by: the console and players
+    permission: pvpall.use
+    permission message: &cThis command can only be run by a &bCraftWell Admin.
+    trigger:
+        loop all permissions of group "default":
+            if loop-value is "pvpall.on":
+                set {_status} to "on"
+                exit 1 loop
+            if loop-value is not "pvpall.on":
+                set {_status} to "off"
+        if {_status} is "off":
+            execute console command "/rg addmember -w world __global__ g:default"
+            execute console command "/rg addmember -w world_nether __global__ g:default"
+            execute console command "/rg addmember -w world_the_end __global__ g:default"
+            execute console command "/lp group default permission set pvpall.on true"
+            broadcast "&ePvP has been &aENABLED &efor &f&lALL PLAYERS!"
+        if {_status} is "on":
+            execute console command "/rg removemember -w world -a __global__"
+            execute console command "/rg removemember -w world_nether -a __global__"
+            execute console command "/rg removemember -w world_the_end -a __global__"
+            execute console command "/lp group default permission unset pvpall.on"
+            execute console command "/lp bulkupdate users delete ""permission == pvpme.on"""
+            broadcast "&ePvP has been &cDISABLED &efor &f&lALL PLAYERS!"
+
+on join:
+    if player has permission "pvpme.on":
+        execute console command "/rg removemember -w world __global__ %player%"
+        execute console command "/rg removemember -w world_nether __global__ %player%"
+        execute console command "/rg removemember -w world_the_end __global__ %player%"
+        execute console command "/lp user %player% permission unset pvpme.on"
+
+on quit:
+    if player has permission "pvpme.on":
+        execute console command "/rg removemember -w world __global__ %player%"
+        execute console command "/rg removemember -w world_nether __global__ %player%"
+        execute console command "/rg removemember -w world_the_end __global__ %player%"
+        execute console command "/lp user %player% permission unset pvpme.on"

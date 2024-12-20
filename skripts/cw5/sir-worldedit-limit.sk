@@ -1,0 +1,52 @@
+on load:
+    loop all players:
+        if loop-player has permission "worldedit.wand":
+            add "%loop-player%" to {weusers::*}
+on unload:
+    if {weusers::*} is set:
+        delete {weusers::*}
+
+
+on join:
+    wait 3 seconds
+    if event-player has permission "worldedit.wand":
+        add "%event-player%" to {weusers::*}
+    if the real online player count is 0:
+        if {weusers::*} is set:
+            delete {weusers::*}
+    if the real online player count is 1:
+        if {weusers::*} is set:
+            loop {weusers::*}:
+                if loop-value parsed as player does not have permission "worldedit.limit.unrestricted":
+                    execute console command "/lp user %loop-value% permission set worldedit.limit.unrestricted true"
+                    make loop-value parsed as player execute command "//limit -1"
+                    send "&eOne player online. Removing WE block limit." to loop-value parsed as player
+    if the real online player count is greater than 1:
+        if {weusers::*} is set:
+            loop {weusers::*}:
+                if loop-value parsed as player has permission "worldedit.limit.unrestricted":
+                    execute console command "/lp user %loop-value% permission unset worldedit.limit.unrestricted"
+                    make loop-value parsed as player execute command "//limit"
+                    send "&eMore than one player online. Enforcing WE block limit." to loop-value parsed as player
+
+on leave:
+    wait 3 seconds
+    if {weusers::*} contains "%event-player%":
+        remove "%event-player%" from {weusers::*}
+    if the real online player count is 0:
+        if {weusers::*} is set:
+            delete {weusers::*}
+    if the real online player count is 1:
+        if {weusers::*} is set:
+            loop {weusers::*}:
+                if loop-value parsed as player does not have permission "worldedit.limit.unrestricted":
+                    execute console command "/lp user %loop-value% permission set worldedit.limit.unrestricted true"
+                    make loop-value parsed as player execute command "//limit -1"
+                    send "&eOne player online. Removing WE block limit." to loop-value parsed as player
+    if the real online player count is greater than 1:
+        if {weusers::*} is set:
+            loop {weusers::*}:
+                if loop-value parsed as player has permission "worldedit.limit.unrestricted":
+                    execute console command "/lp user %loop-value% permission unset worldedit.limit.unrestricted"
+                    make loop-value parsed as player execute command "//limit"
+                    send "&eMore than one player online. Enforcing WE block limit." to loop-value parsed as player

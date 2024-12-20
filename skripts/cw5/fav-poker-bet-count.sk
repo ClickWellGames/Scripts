@@ -1,0 +1,169 @@
+
+on load:
+      set {poker-loc-lim} to location(-29400.5, 220.5, -24154.5, world "world")
+      set {poker-loc-ora} to location(-29395.5, 220.5, -24154.5, world "world")
+      set {poker-loc-yel} to location(-29390.5, 220.5, -24154.5, world "world")
+      set {poker-loc-red} to location(-29388.5, 220.5, -24151.5, world "world")
+      set {poker-loc-gre} to location(-29390.5, 220.5, -24148.5, world "world")
+      set {poker-loc-pur} to location(-29395.5, 220.5, -24148.5, world "world")
+      set {poker-loc-pin} to location(-29400.5, 220.5, -24148.5, world "world")
+      set {poker-loc-blu} to location(-29402.5, 220.5, -24151.5, world "world")
+      execute console command "/pokertextclear"
+      execute console command "/pokerbet"
+      clear {fav-poker-blind-big}
+      execute console command "/pokerblind"
+
+
+on inventory close:
+     if "%region at player%" contains "poker-fav-test":
+          if event-inventory's display name contains "Your Bet":
+               execute console command "/pokerbet"
+               
+
+# - big blind, small blind
+# - pot size: 
+# - Bet: 
+# - Check, Call, Raise, Fold
+# - if shulker = bet, green
+# - if shulker < bet, white
+# - if fold,  red
+
+# big blind
+# /give @s iron_nugget[custom_model_data=3] 1
+
+# small blind
+# /give @s iron_nugget[custom_model_data=1] 1
+
+command /pokertextclear:
+     trigger:
+          set {_loc4} to location(-29396, 219, -24152, world "world")
+          loop all entities in radius 64 of {_loc4}:
+               if loop-entity is a text display:
+                    kill loop-entity
+
+command /pokerbb:
+     trigger:
+          summon a text display at {poker-loc-red} 
+          set {fav-poker-blind-big-text} to last spawned text display
+          set display text of {fav-poker-blind-big-text} to formatted "Big Blind 10§2⟡"
+          set display billboard of {fav-poker-blind-big-text} to center
+
+command /pokerblind:
+     trigger:
+          if {fav-poker-blind-big-text} is set:
+               kill {fav-poker-blind-big-text}
+          if {fav-poker-blind-small-text} is set:
+               kill {fav-poker-blind-small-text}
+ 
+          if {fav-poker-blind-big} is not set:
+               set {fav-poker-blind-big} to {poker-loc-red}
+          
+          summon a text display at {fav-poker-blind-big} 
+          set {fav-poker-blind-big-text} to last spawned text display
+          set display text of {fav-poker-blind-big-text} to formatted "&lBig Blind 2§2⟡"
+          set display billboard of {fav-poker-blind-big-text} to center
+          
+# red, gre, pur, pin, blu, lim, ora, yel
+          if {fav-poker-blind-big} = {poker-loc-red}:
+               set {fav-poker-blind-small} to {poker-loc-yel}
+          else if {fav-poker-blind-big} = {poker-loc-gre}:
+               set {fav-poker-blind-small} to {poker-loc-red}
+          else if {fav-poker-blind-big} = {poker-loc-pur}:
+               set {fav-poker-blind-small} to {poker-loc-gre}
+          else if {fav-poker-blind-big} = {poker-loc-pin}:
+               set {fav-poker-blind-small} to {poker-loc-pur}
+          else if {fav-poker-blind-big} = {poker-loc-blu}:
+               set {fav-poker-blind-small} to {poker-loc-pin}
+          else if {fav-poker-blind-big} = {poker-loc-lim}:
+               set {fav-poker-blind-small} to {poker-loc-blu}
+          else if {fav-poker-blind-big} = {poker-loc-ora}:
+               set {fav-poker-blind-small} to {poker-loc-lim}
+          else if {fav-poker-blind-big} = {poker-loc-yel}:
+               set {fav-poker-blind-small} to {poker-loc-ora}
+          
+          summon a text display at {fav-poker-blind-small}
+          set {fav-poker-blind-small-text} to last spawned text display
+          set display text of {fav-poker-blind-small-text} to formatted "&lSmall Blind 1§2⟡"
+          set display billboard of {fav-poker-blind-small-text} to center
+
+# red, gre, pur, pin, blu, lim, ora, yel
+          if {fav-poker-blind-big} = {poker-loc-red}:
+               set {fav-poker-blind-big} to {poker-loc-gre}
+          else if {fav-poker-blind-big} = {poker-loc-gre}:
+               set {fav-poker-blind-big} to {poker-loc-pur}
+          else if {fav-poker-blind-big} = {poker-loc-pur}:
+               set {fav-poker-blind-big} to {poker-loc-pin}
+          else if {fav-poker-blind-big} = {poker-loc-pin}:
+               set {fav-poker-blind-big} to {poker-loc-blu}
+          else if {fav-poker-blind-big} = {poker-loc-blu}:
+               set {fav-poker-blind-big} to {poker-loc-lim}
+          else if {fav-poker-blind-big} = {poker-loc-lim}:
+               set {fav-poker-blind-big} to {poker-loc-ora}
+          else if {fav-poker-blind-big} = {poker-loc-ora}:
+               set {fav-poker-blind-big} to {poker-loc-yel}
+          else if {fav-poker-blind-big} = {poker-loc-yel}:
+               set {fav-poker-blind-big} to {poker-loc-red}
+          
+          play sound "ITEM_CHORUS_FRUIT_TELEPORT" at volume 1
+          wait 1 second
+          play sound "ENTITY_VILLAGER_YES" at volume 100
+          
+
+
+
+command /pokerclear:
+     trigger:
+          delete {poker-bet-text::*}
+
+command /pokerbet:
+     trigger:
+          set {_pot} to 0
+          set {_bet} to 0
+          set {_loc1} to location(-29396, 225, -24152, world "world")
+          set {_loc2} to location(-29396, 224, -24152, world "world")
+          set {_loc4} to location(-29396, 220, -24152, world "world")
+          if {poker-bet-text::*} is set:
+               loop {poker-bet-text::*}:
+                    kill {poker-bet-text::%loop-index%}
+                    delete {poker-bet-text::%loop-index%}
+          broadcast {poker-bet-text::*}
+          loop all blocks in radius 64 of {_loc4}:
+               if loop-blocks is a shulker box:
+                    set {_ems} to number of emeralds in the loop-block's inventory
+                    set {_pot} to {_pot} + {_ems}
+                    if {_ems} > {_bet}:
+                         set {_bet} to {_ems}
+
+          loop all blocks in radius 64 of {_loc4}:
+               if loop-blocks is a shulker box:
+                    set {_ems} to number of emeralds in the loop-block's inventory
+                    set {_location} to location 0.4 above the loop-block
+                    summon a text display at {_location}
+                    set {_summon} to last spawned text display
+                    set display billboard of {_summon} to center
+                    set display scale of {_summon} to vector(2, 2, 2)
+                    if {_ems} = {_bet}:
+                         set display text of {_summon} to formatted "§e%{_ems}%⟡"
+                    else if {_ems} < {_bet}:
+                         set display text of {_summon} to formatted "%{_ems}%§2⟡"
+                    else:
+                         set display text of {_summon} to formatted "%{_ems}%§2⟡"
+                    add {_summon} to {poker-bet-text::*}
+
+          summon a text display at {_loc1}
+          set {_summon} to last spawned text display
+          set display text of {_summon} to formatted "Pot Size: %{_pot}%§2⟡"
+          set display billboard of {_summon} to center
+          set display scale of {_summon} to vector(2, 2, 2)
+          add {_summon} to {poker-bet-text::*}
+
+          summon a text display at {_loc2}
+          set {_summon} to last spawned text display
+          set display text of {_summon} to formatted "Current Bet: %{_bet}%§2⟡"
+          set display billboard of {_summon} to center
+          set display scale of {_summon} to vector(2, 2, 2)
+          add {_summon} to {poker-bet-text::*}
+
+          play sound "ENTITY_EXPERIENCE_ORB_PICKUP" at volume 1
+
+
