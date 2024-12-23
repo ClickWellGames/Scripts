@@ -1,0 +1,30 @@
+command /biomecompass <text>:
+    usage: /biomecompass <biome>
+    aliases: /bcomp
+    description: Use the Biome Compass
+    permission: cw5.biomecompass
+    permission message: &cYou do not have permission to use this command.
+    executable by: players
+    trigger:
+        if arg-1 parsed as biome is not a biome:
+            send "&cInvalid biome."
+            stop
+        if held item is not a compass:
+            send "&cYou must be holding a compass to use this command."
+            stop
+        set {_selBiome} to nearest arg-1 parsed as biome in radius 10000000 around sender
+        set the sender's compass target to {_selBiome}
+        set name of held item to "&aBiome Compass &f- &e%arg-1%"
+
+command /naturecompass:
+    executable by: players
+    aliases: /ncomp, /nc
+    description: Open the Nature's Compass Menu
+    permission: cw5.naturecompass
+    permission message: &cYou do not have permission to use this command.
+    trigger:
+        if held item is compass:
+            make sender execute command "/dm open biome_compass" with permission "deluxemenus.open"
+        else:
+            send "&cYou must be holding a compass to use this command."
+            stop

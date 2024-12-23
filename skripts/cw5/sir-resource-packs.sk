@@ -99,7 +99,7 @@ command /reloadpack:
 command /pack:
     executable by: players
     trigger:
-        execute player command "/cw5_pack_misc"
+        make sender execute command "/dm open pack_misc" with permission "deluxemenus.open"
 
 command /clearpack:
     executable by: players

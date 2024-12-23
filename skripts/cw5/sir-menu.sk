@@ -3,6 +3,6 @@ command /menu:
     aliases: /m
     trigger:
         if player has permission "group.cwadmin":
-            execute player command "/cw5_admin_menu"
+            make sender execute command "/dm open menu_admin" with permission "deluxemenus.open"
         else:
-            execute player command "/cw5_menu"
+            make sender execute command "/dm open menu" with permission "deluxemenus.open"
