@@ -11,7 +11,7 @@
                 "when": "monster",
                 "model": {
                     "type": "model",
-                    "model": "craftwell:item/monster"
+                    "model": "item/monster"
                 }
             }
         ]
