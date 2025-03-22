@@ -1,6 +1,19 @@
 {
     "model": {
-        "type": "model",
-        "model": "craftwell:item/monster"
+        "type": "select",
+        "property": "custom_model_data",
+        "fallback": {
+            "type": "model",
+            "model": "minecraft:item/phantom_membrane"
+        },
+        "cases": [
+            {
+                "when": 1,
+                "model": {
+                    "type": "model",
+                    "model": "craftwell:item/monster"
+                }
+            }
+        ]
     }
 }
