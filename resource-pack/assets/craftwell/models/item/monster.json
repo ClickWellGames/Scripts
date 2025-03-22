@@ -1,7 +1,7 @@
 {
-    "parent": "item/generated",
+    "parent": "minecraft:item/generated",
     "textures": {
-      "layer0": "item/monster"
+      "layer0": "craftwell:item/monster"
     },
     "display": {
       "gui": {
