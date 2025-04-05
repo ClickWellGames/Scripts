@@ -4,7 +4,7 @@
 
 In a realm where the lines between realities blur, an ancient being of unimaginable wisdom and power, known simply as the Endless Sage, has hidden treasures of immense power throughout the world of CraftWell. Among these treasures lies the Vial of Eternity, a mystical artifact that grants immortality to any creature who drinks from it, with the singular exception of humans.
 
-##### The Legend of the Vial of Eternity
+#### The Legend of the Vial of Eternity
 
 In a time long forgotten, when the universe was still young and the fabric of reality was woven with the threads of pure magic, there existed a being of unparalleled wisdom and power known as the Endless Sage. The Sage was an ancient entity, timeless and eternal, who traversed the cosmos in search of knowledge and enlightenment.
 
