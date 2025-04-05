@@ -12,7 +12,7 @@ The Endless Sage, in their infinite wisdom, foresaw a future where the balance o
 
 Forged from the essence of stars and imbued with the purest magic, the Vial of Eternity held the power to grant eternal life and boundless knowledge. However, the Sage understood that such power could not fall into unworthy hands. Thus, the Vial was hidden away in a place where only the most deserving could find it.
 
-The Endless Sage chose the highest peak in creations collection, a realm where stars die and secrets die, as the resting place for the Vial. To protect it, the Sage appointed a guardian, a being of immense strength and unwavering loyalty, who would stand vigilant against those driven by mere greed and desire.
+The Endless Sage chose the highest peak in creations collection, a realm where stars and secrets die, as the resting place for the Vial. To protect it, the Sage appointed a guardian, a being of immense strength and unwavering loyalty, who would stand vigilant against those driven by mere greed and desire.
 
 The guardian was charged with the solemn duty of ensuring that only those who exhibited true wisdom, courage, and purity of heart could approach the Vial. Over time, the Vial of Eternity became a legend, a mythical relic sought by adventurers and scholars alike.
 
