@@ -2,7 +2,7 @@
 
 #### Story Introduction
 
-In a realm where the lines between realities blur, an ancient being of unimaginable wisdom and power, known simply as the Eternal Sage, has hidden treasures of immense power throughout the world of CraftWell. Among these treasures lies the Vial of Eternity, a mystical artifact that grants immortality to any creature who drinks from it, with the singular exception of humans.
+In a realm where the lines between realities blur, an ancient being of unimaginable wisdom and power, known simply as the Endless Sage, has hidden treasures of immense power throughout the world of CraftWell. Among these treasures lies the Vial of Eternity, a mystical artifact that grants immortality to any creature who drinks from it, with the singular exception of humans.
 
 Many adventurers have sought this elusive prize, but none have succeeded. Will you be the one to unravel the riddles and claim the Vial of Eternity?
 
