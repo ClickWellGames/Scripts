@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-      "layer0": "craftwell:item/vile_of_eternity"
+      "layer0": "craftwell:item/vial_of_eternity"
     }
   }
