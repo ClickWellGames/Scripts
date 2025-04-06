@@ -1,57 +1,79 @@
 on load:
-    set {base::uuid} to "f393dcd3-4fdb-4802-9fbc-55594fa64c15"
-    set {base::hash} to "015cb4986a44fd4789d1de5bd50d6e82fe062612"
-    set {base::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/cw5-custom-resourcepack.zip"
+# CraftWell 5 Resource Pack
+    set {base::uuid} to "50949dc0-8a33-474b-bdbe-e8bd47923fbe"
+    set {base::hash} to "21418a95ccb8f83164ab36a5340cc6a8a989379d"
+    set {base::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/cw5-custom-resourcepack.zip"
 
 # Misc
     set {clickpack::uuid} to "ec560bc3-7600-4649-838c-a728dbb6d041"
-    set {clickpack::hash} to "1ac959f9a788ec520a71f1601db65bab86d792fa"
-    set {clickpack::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/misc/clickpack.zip"
+    set {clickpack::hash} to "01e49289d3e7d57ba915703c1529e2660d1c95b3"
+    set {clickpack::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/misc/clickpack.zip"
 
-    set {gold-crown::uuid} to "de2fb076-6823-4f68-9d27-6be4d80cf043"
-    set {gold-crown::hash} to "a78618c568835da6c554a43fcce095e3c2b74c1f"
-    set {gold-crown::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/misc/golden-crown.zip"
+    set {gold-crown::uuid} to "7dd21e0c-63f7-45d7-b21e-dc9d79ae901f"
+    set {gold-crown::hash} to "ced750e1f4dd1b1fb22a9c04b96ba04483de13e5"
+    set {gold-crown::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/misc/golden-crown.zip"
+
+    set {rename-stem-to-log::uuid} to "48e4c5de-3762-4b9d-a02c-69819f5512b6"
+    set {rename-stem-to-log::hash} to "18836c914ad5157885e9f39dbe47d0ac98103ed2"
+    set {rename-stem-to-log::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/misc/rename-stem-to-log.zip"
+
+# Quality of Life
+    set {lush-plants::uuid} to "2bbaabdc-fb03-467b-8dd5-da593b8de7a5"
+    set {lush-plants::hash} to "76425644f011f8e599c8c0b95f54661d8971b4b0"
+    set {lush-plants::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/qol/xksp-lush-plants-v3-2-e3480.zip"
 
 # Elytras
     set {dragon-elytra::uuid} to "2ccec3cc-4792-42bc-af57-df89e6a8108a"
-    set {dragon-elytra::hash} to "334ae67f3992ed905e8184cfa332283954be436b"
-    set {dragon-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/dragon.zip"
+    set {dragon-elytra::hash} to "4165ad21f2f9ea2554b8560d3a00524e08c31c8b"
+    set {dragon-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/dragon.zip"
 
     set {phantom-elytra::uuid} to "ada8e5eb-f310-4d3a-bc7c-c3914c205bb9"
-    set {phantom-elytra::hash} to "a695d064018b2d4b4df242cb96c02a2538f49faf"
-    set {phantom-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/phantom.zip"
+    set {phantom-elytra::hash} to "50d7c0283771a2e84928383e29f686dc361dd531"
+    set {phantom-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/phantom.zip"
 
     set {allay-elytra::uuid} to "db783322-b169-489e-85f7-9da676afc551"
-    set {allay-elytra::hash} to "e22813ceba879e25980dbd38fcb7c74f542ebae9"
-    set {allay-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/allay.zip"
+    set {allay-elytra::hash} to "96cd19406eed3be220d1339bd29f942e4cef5577"
+    set {allay-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/allay.zip"
 
     set {vex-elytra::uuid} to "11af994e-4acf-470a-91ac-60f3194b7fd0"
-    set {vex-elytra::hash} to "e2d08bfc89dfd7d24a586f49bdde917708ec8608"
-    set {vex-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/vex.zip"
+    set {vex-elytra::hash} to "689dcc70b47b080d8fc3d80c19024fb4e994f8ff"
+    set {vex-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/vex.zip"
 
 # Personal Elytras
     set {clickwell-davinchi-elytra::uuid} to "e8cd6b0f-bcb3-4073-9a77-343de4b054b5"
-    set {clickwell-davinchi-elytra::hash} to "f8330100230452eec516fa12c6b0b90ba40c95fd"
-    set {clickwell-davinchi-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-davinchi.zip"
+    set {clickwell-davinchi-elytra::hash} to "9ca2376b4a78e9b8f4bdbe6c2d97a2836dfbcfbc"
+    set {clickwell-davinchi-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-davinchi.zip"
 
     set {clickwell-green-elytra::uuid} to "ef38cd7f-40f0-498d-8eab-9194ac959bee"
-    set {clickwell-green-elytra::hash} to "eb888b2491a6191cfe56fdb3624cae1b1a6f66c7"
-    set {clickwell-green-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-green.zip"
+    set {clickwell-green-elytra::hash} to "bb521ff5b5e789ff9ccf29a6cd25edc290533b9e"
+    set {clickwell-green-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/clickwell-green.zip"
 
     set {crazymama-moth-elytra::uuid} to "09f2d7b3-8913-46d1-a187-8c866ed4f1fb"
-    set {crazymama-moth-elytra::hash} to "17701f7cf2154e5096f5e89bf26c63ccbcc86308"
-    set {crazymama-moth-elytra::url} to "https://github.com/MrSir08/ClickWell-Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/crazymama-moth.zip"
+    set {crazymama-moth-elytra::hash} to "73402cda0fa8506d499ea7e406e56ab1cf67d330"
+    set {crazymama-moth-elytra::url} to "https://github.com/ClickWellGames/Scripts/raw/refs/heads/main/optional-resource-packs/elytras/personal/crazymama-moth.zip"
 
 function applyPack(p: player):
     if {_p} has permission "pack.cw5-base":
         send resource pack from {base::url} with uuid {base::uuid} with hash {base::hash} to {_p} with force
         add "CW5-BASE" to {_pack::*}
+
+# Misc
     if {_p} has permission "pack.clickpack":
         send resource pack from {clickpack::url} with uuid {clickpack::uuid} with hash {clickpack::hash} to {_p} with force
         add "clickpack" to {_pack::*}
     if {_p} has permission "pack.gold-crown":
         send resource pack from {gold-crown::url} with uuid {gold-crown::uuid} with hash {gold-crown::hash} to {_p} with force
         add "gold-crown" to {_pack::*}
+    if {_p} has permission "pack.rename-stem-to-log":
+        send resource pack from {rename-stem-to-log::url} with uuid {rename-stem-to-log::uuid} with hash {rename-stem-to-log::hash} to {_p} with force
+        add "rename-stem-to-log" to {_pack::*}
+
+# Quality of Life
+    if {_p} has permission "pack.lush-plants":
+        send resource pack from {lush-plants::url} with uuid {lush-plants::uuid} with hash {lush-plants::hash} to {_p} with force
+        add "lush-plants" to {_pack::*}
+
+# Elytras
     if {_p} has permission "pack.dragon-elytra":
         send resource pack from {dragon-elytra::url} with uuid {dragon-elytra::uuid} with hash {dragon-elytra::hash} to {_p} with force
         add "dragon-elytra" to {_pack::*}
@@ -104,22 +126,37 @@ command /pack:
 command /clearpack:
     executable by: players
     trigger:
+        # Misc
         if player has permission "pack.clickpack":
             execute console command "/lp user %player% permission unset pack.clickpack"
         if player has permission "pack.gold-crown":
             execute console command "/lp user %player% permission unset pack.gold-crown"
+        if player has permission "pack.rename-stem-to-log":
+            execute console command "/lp user %player% permission unset pack.rename-stem-to-log"
+
+        # Quality of Life
+        if player has permission "pack.lush-plants":
+            execute console command "/lp user %player% permission unset pack.lush-plants"
+
+        # Elytras
         if player has permission "pack.dragon-elytra":
             execute console command "/lp user %player% permission unset pack.dragon-elytra"
         if player has permission "pack.phantom-elytra":
             execute console command "/lp user %player% permission unset pack.phantom-elytra"
         if player has permission "pack.allay-elytra":
             execute console command "/lp user %player% permission unset pack.allay-elytra"
+
+        # Personal Elytras
+        # ClickWell
         if player has permission "pack.clickwell-davinchi-elytra":
             execute console command "/lp user %player% permission unset pack.clickwell-davinchi-elytra"
         if player has permission "pack.clickwell-green-elytra":
             execute console command "/lp user %player% permission unset pack.clickwell-green-elytra"
+
+        # CRAZYMAMA
         if player has permission "pack.crazymama-moth-elytra":
             execute console command "/lp user %player% permission unset pack.crazymama-moth-elytra"
+
         wait 1 second
         remove all resource packs from player
         applyPack(player)

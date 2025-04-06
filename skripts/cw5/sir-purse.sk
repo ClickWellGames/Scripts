@@ -1,0 +1,18 @@
+command /givepurse <player=%player%>:
+    executable by: players and console
+    usage: /givebackpack <player>
+    permission: cw5.purse.give
+    permission message: &cYou do not have permission to use this command.
+    trigger:
+        execute console command "/minecraft:give %arg-1% blue_bundle[custom_name='["""",{""text"":"" - Tiny Purse - "",""italic"":false,""color"":""gold""}]',lore=['["""",{""text"":""Right Click Me!"",""italic"":false}]'],item_name='["""",{""text"":""TinyPurse"",""italic"":false}]',enchantment_glint_override=true,equippable={slot:mainhand},custom_data={purse_level:1},hide_additional_tooltip={}] 1"
+        send "%arg-1% &7You have received a &6Tiny Purse&7 from %sender%." to arg-1
+        send "&7You have given &6%arg-1% &7a &6Tiny Purse&7." to sender
+
+on rightclick holding a blue bundle:
+    if nbt compound of event-item has tag "purse_level":
+        set {_level} to int tag "purse_level" of nbt of event-item
+        cancel event
+    if player has permission "cw5.purse.use.1":
+        execute player command "/playervaults 1" with permission "playervaults.commands.use"
+    else:
+        send "&cYou do not have permission to use this item." to event-player

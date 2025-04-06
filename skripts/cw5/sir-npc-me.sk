@@ -1,0 +1,21 @@
+on npc create:
+    wait 10 ticks
+    if npc full name of event-npc contains "Attacker":
+        set citizen held item of event-npc to diamond sword named "&c&lAttacker Sword"
+        set {_name} to the citizen full name of event-npc
+        replace all "Attacker: " with "&c" in {_name}
+        set citizen full name of event-npc to {_name}
+    else if npc full name of event-npc contains "Healer":
+        set citizen held item of event-npc to splash potion of instant health named "&6&lHealer Potion"
+        set {_name} to the citizen full name of event-npc
+        replace all "Healer: " with "&d" in {_name}
+        set citizen full name of event-npc to {_name}
+    else if npc full name of event-npc contains "Guard":
+        set citizen held item of event-npc to diamond sword named "&c&lGuardian Sword"
+        set {_name} to the citizen full name of event-npc
+        replace all "Guard: " with "&a" in {_name}
+        set citizen full name of event-npc to {_name}
+    else if npc full name of event-npc contains "Archer":
+        set {_name} to the citizen full name of event-npc
+        replace all "Archer: " with "&6" in {_name}
+        set citizen full name of event-npc to {_name}

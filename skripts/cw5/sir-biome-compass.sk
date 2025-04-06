@@ -12,7 +12,7 @@ command /biomecompass <text>:
         if held item is not a compass:
             send "&cYou must be holding a compass to use this command."
             stop
-        set {_selBiome} to nearest arg-1 parsed as biome in radius 10000000 around sender
+        set {_selBiome} to nearest arg-1 parsed as biome in radius 1000000 around sender
         set the sender's compass target to {_selBiome}
         set name of held item to "&aBiome Compass &f- &e%arg-1%"
 

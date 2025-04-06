@@ -1,0 +1,85 @@
+command /givecarrot <player=%player%>:
+    permission: cw5.boss.carrot.give
+    permission message: "&cYou do not have permission to use this command!"
+    usage: "&cUsage: /givecarrot <player>"
+    description: "&7Give a player a Boss carrot"
+    trigger:
+        if arg-1 is sender:
+            if sender has permission "cw5.boss.carrot":
+                execute console command "/give %sender% golden_carrot[custom_name='["""",{""text"":""The Endless Carrot"",""italic"":false}]',item_name='["""",{""text"":""TheEndlessCarrot"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+                send "&7You have given yourself a Boss carrot!"
+            else:
+                send "&cYou cannot give yourself a Boss carrot because you are not a Boss!"
+            if sender has permission "cw5.boss.health":
+                if sender does not have permission "cw5.boss.health.claimed":
+                    set {_health} to sender's health
+                    add 10 to {_health}
+                    set sender's max health to {_health}
+                    apply potion of regeneration 5 to sender for 5 seconds
+                    execute console command "/lp user %sender% permission set cw5.boss.health.claimed true"
+        else:
+            if arg-1 has permission "cw5.boss.carrot":
+                execute console command "/give %arg-1% golden_carrot[custom_name='["""",{""text"":""The Endless Carrot"",""italic"":false}]',item_name='["""",{""text"":""TheEndlessCarrot"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+                send "&7You have given &6%arg-1% &7a Boss carrot!"
+                send "&7You have received a Boss carrot from &6%sender%&7." to arg-1
+            else:
+                send "&cYou cannot give a Boss carrot to &6%arg-1% &cbecause they are not a Boss!"
+            if arg-1 has permission "cw5.boss.health":
+                if arg-1 does not have permission "cw5.boss.health.claimed":
+                    set {_health} to arg-1's health
+                    add 10 to {_health}
+                    set arg-1's max health to {_health}
+                    apply potion of regeneration 5 to arg-1 for 5 seconds
+                    execute console command "/lp user %arg-1% permission set cw5.boss.health.claimed true"
+
+command /carrotme:
+    permission: cw5.boss.carrot
+    permission message: "&cYou do not have permission to use this command!"
+    usage: "&cUsage: /carrotme"
+    description: "&7Receive a Boss carrot"
+    trigger:
+        if sender does not have permission "cw5.boss.carrot.claimed":
+            if sender has permission "pack.clickpack":
+                execute console command "/give %sender% golden_carrot[custom_name='["""",{""text"":""The Bottomless Coke"",""italic"":false}]',item_name='["""",{""text"":""TheBottomlessCoke"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+                send "&7You have received your Bottomless Coke!"
+            else:
+                execute console command "/give %sender% golden_carrot[custom_name='["""",{""text"":""The Endless Carrot"",""italic"":false}]',item_name='["""",{""text"":""TheEndlessCarrot"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+                send "&7You have received your Endless Carrot!"
+            execute console command "/lp user %sender% permission set cw5.boss.carrot.claimed true"
+        else:
+            send "&cYou have already claimed your Endless carrot!"
+        
+        if sender has permission "cw5.boss.health":
+            if sender does not have permission "cw5.boss.health.claimed":
+                set {_health} to sender's health
+                add 10 to {_health}
+                set sender's max health to {_health}
+                apply potion of regeneration 5 to sender for 5 seconds
+                execute console command "/lp user %sender% permission set cw5.boss.health.claimed true"
+
+
+on eating golden carrot:
+    if name of event-item is "The Endless Carrot":
+        if event-player has permission "cw5.boss.carrot":
+            if sender has permission "pack.clickpack":
+                execute console command "/give %event-player% golden_carrot[custom_name='["""",{""text"":""The Bottomless Coke"",""italic"":false}]',item_name='["""",{""text"":""TheBottomlessCoke"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+            else:
+                execute console command "/give %event-player% golden_carrot[custom_name='["""",{""text"":""The Endless Carrot"",""italic"":false}]',item_name='["""",{""text"":""TheEndlessCarrot"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+        else:
+            send "&cYou cannot use this item because you are not a Boss!" to event-player
+            cancel event
+    else if name of event-item is "The Bottomless Coke":
+        if event-player has permission "cw5.boss.carrot":
+            if sender has permission "pack.clickpack":
+                execute console command "/give %event-player% golden_carrot[custom_name='["""",{""text"":""The Bottomless Coke"",""italic"":false}]',item_name='["""",{""text"":""TheBottomlessCoke"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+            else:
+                execute console command "/give %event-player% golden_carrot[custom_name='["""",{""text"":""The Endless Carrot"",""italic"":false}]',item_name='["""",{""text"":""TheEndlessCarrot"",""italic"":false}]',rarity=epic,enchantment_glint_override=true,food={nutrition:20,saturation:20,can_always_eat:1b},consumable={on_consume_effects:[{type:apply_effects,probability:0.1,effects:[{id:regeneration,duration:100,amplifier:4,show_particles:0b}]}]},equippable={slot:head,dispensable:0b,swappable:0b,damage_on_hurt:0b},custom_data={boss:1},hide_additional_tooltip={}] 1"
+        else:
+            send "&cYou cannot use this item because you are not a Boss!" to event-player
+            cancel event
+
+on join:
+    wait 5 seconds
+    if player has permission "cw5.boss.health.claimed":
+        execute console command "/attribute %event-player% minecraft:max_health base reset"
+        execute console command "/lp user %event-player% permission unset cw5.boss.health.claimed"

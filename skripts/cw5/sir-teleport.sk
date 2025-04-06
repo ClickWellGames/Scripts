@@ -1,0 +1,11 @@
+on player teleport:
+    if event-player is riding a boat:
+        set {_boat} to vehicle of event-player
+        force teleport {_boat} to event-location retaining vehicle and passengers
+    else:
+        set {_entities::*} to entities of chunk at past event-location
+        loop {_entities::*}:
+            if loop-value is leashed:
+                if leash holder of loop-value is event-player:
+                    force teleport loop-value to event-location retaining vehicle and passengers
+            
