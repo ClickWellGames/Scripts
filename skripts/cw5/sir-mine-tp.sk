@@ -1,0 +1,6 @@
+command /minetp:
+	executable by: players
+	permission: cw5.mine.tp
+	permission message: "You do not have access to this command"
+	trigger:
+		make sender execute command "/mine tp StoneZone" with permission "mines.*"
