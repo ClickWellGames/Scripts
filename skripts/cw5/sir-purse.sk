@@ -134,6 +134,7 @@ on player inventory click at blue bundle:
     if event-click type is right mouse button:
         if name of event-item contains "Tiny Purse":
             cancel event
+            close player's inventory
             if player has permission "cw5.purse.use":
                 if player has permission "cw5.purse.use.tiny":
                     openPurse(player, 1)
@@ -143,6 +144,7 @@ on player inventory click at blue bundle:
                 send "&cYou do not have permission to use this level of purse." to event-player
         else if name of event-item contains "Small Purse":
             cancel event
+            close player's inventory
             if player has permission "cw5.purse.use":
                 if player has permission "cw5.purse.use.small":
                     execute console command "/lp user %player% permission set cw5.purse.prompt true"
@@ -153,6 +155,7 @@ on player inventory click at blue bundle:
                     send "&cYou do not have permission to use this level of purse." to player
         else if name of event-item contains "Handbag":
             cancel event
+            close player's inventory
             if player has permission "cw5.purse.use":
                 if player has permission "cw5.purse.use.medium":
                     execute console command "/lp user %player% permission set cw5.purse.prompt true"
@@ -166,6 +169,7 @@ on player inventory click at blue bundle:
                     send "&cYou do not have permission to use this level of purse." to player
         else if name of event-item contains "Backpack":
             cancel event
+            close player's inventory
             if player has permission "cw5.purse.use":
                 if player has permission "cw5.purse.use.large":
                     execute console command "/lp user %player% permission set cw5.purse.prompt true"
